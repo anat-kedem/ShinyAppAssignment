@@ -766,7 +766,7 @@ hljs.initHighlightingOnLoad();
 
 <h4>Interactive Shiny application to predict with lm model</h4>
 
-<h5>OVERVIEW</h5>  
+<h5>OVERVIEW</h5>
 
 <p><small><strong>Prepared as an assignment in the Coursera course Developing Data Products.</strong></small></p>
 
@@ -803,39 +803,24 @@ hljs.initHighlightingOnLoad();
 </section>
 <section data-state="prompt" data-transition="none" data-transition-speed="default">
 
-<div class="column column1 slideContent noTitle" >
+<div class="slideContent noTitle" >
 <h3>The &ldquo;lm&rdquo; Model</h3>
 
 <p>The <strong>lm</strong> function create linear regression model that can be used to predict new values, and contain information as the Residual Standard Error and the prediction equation.<br/>
-<small>RSE equation: \( S_{y}=\sqrt{\frac{\sum_{i=i}^{n} (y_{i}-\hat{y}_{i})^2}{(n-2)}}=5.91 \)<br/>
+<small><font size="+2">RSE equation: \( S_{y}=\sqrt{\frac{\sum_{i=i}^{n} (y_{i}-\hat{y}_{i})^2}{(n-2)}}=5.91 \)<br/>
 prediction: \( \hat{y}=10.73\cdot x^* + 33.47 \)<br/>
-were <strong>\( y_{i} \)</strong> is each waiting value in faithful, <strong>\( \hat{y}_{i} \)</strong> is each equivalent predicted waiting time, <strong>(n-2)</strong> degree of freedom, <strong>\( x^* \)</strong> new eruption value to predict with.</p>
-
-
-</div>
-
-<div class="column column2 slideContent noTitle" >
-
-
-<p>See code below:<br/>
-<font size="+2"></p>
+were <strong>\( y_{i} \)</strong> is each waiting value in faithful, <strong>\( \hat{y}_{i} \)</strong> is each equivalent predicted waiting time, <strong>(n-2)</strong> degree of freedom, <strong>\( x^* \)</strong> new eruption value to predict with.<br/>
+See code below:  </p>
 
 <pre><code class="r">library(datasets) ; data(faithful)
-modFit &lt;- lm(waiting~eruptions,data=faithful)
+modFit &lt;- lm(waiting~eruptions, data=faithful)
 summary(modFit)$coefficients[1:2]
 </code></pre>
 
 <pre><code>[1] 33.47440 10.72964
 </code></pre>
 
-<pre><code class="r">summary(modFit)$sigma #model RSE
-</code></pre>
-
-<pre><code>[1] 5.914009
-</code></pre>
-
-<pre><code class="r">newFaithful$predicted &lt;- predict(modFit,newFaithful &lt;- faithful)
-with(newFaithful, sqrt(sum((waiting-predicted)^2)/(dim(faithful)[1]-dim(faithful)[2]))) #calculated RSE
+<pre><code class="r">summary(modFit)$sigma                                   #model RSE
 </code></pre>
 
 <pre><code>[1] 5.914009
@@ -849,21 +834,15 @@ with(newFaithful, sqrt(sum((waiting-predicted)^2)/(dim(faithful)[1]-dim(faithful
 </section>
 <section data-state="prompt" data-transition="none" data-transition-speed="default">
 
-<div class="column column1 slideContent noTitle" style="width: 58%;" >
+<div class="slideContent noTitle" >
 <h3>The Prediction Interval</h3>
 
 <p>The <strong>predict</strong> function use the model coefficients, mean, RSE, etc. to predict waiting time and interval, for a new eruption.<br/>
 <small>The Shiny application show interactively <strong>one</strong> predicted value at a time and therefore the prediction interval (tolerance) is presented.<br/>
-Tolerance equation: \( \hat{y}\pm t_{n-2}^*\cdot S_{y}\cdot\sqrt{1+\frac{1}{n}+\frac{(x^*-\bar{x})^2}{(n-1)S_x^2}}=55.88 to 75.45 \)<br/>
-for <strong>\( x^*=3 \)</strong> (new value) and <strong>0.9 tolerance</strong>, were <strong>\( t_{n-2}^* \)</strong> is t value for a given tolerance and degree of freedom (270), and <strong>\( \bar{x} \)</strong> is eruptions mean in faithful data.  </p>
-
-
-</div>
-
-<div class="column column2 slideContent noTitle" style="width: 38%;" >
-
-
-<p>See code below:  </p>
+<font size="+2">Tolerance equation:<br/>
+\[ \hat{y}\pm t_{n-2}^*\cdot S_{y}\cdot\sqrt{1+\frac{1}{n}+\frac{(x^*-\bar{x})^2}{(n-1)S_x^2}}=55.88 to 75.45 \]<br/>
+for <strong>\( x^*=3 \)</strong> (new value) and <strong>0.9 tolerance</strong>, were <strong>\( t_{n-2}^* \)</strong> is t value for a given tolerance and degree of freedom (270), and <strong>\( \bar{x} \)</strong> is eruptions mean in faithful data.<br/>
+See code below:  </p>
 
 <pre><code class="r">predict(modFit, data.frame(eruptions=3), interval=&quot;prediction&quot;, level=0.9)
 </code></pre>
@@ -872,7 +851,8 @@ for <strong>\( x^*=3 \)</strong> (new value) and <strong>0.9 tolerance</strong>,
 1 65.66332 55.88094 75.4457
 </code></pre>
 
-<p></small></p>
+<p></font size>
+</small></p>
 
 </div>
 
