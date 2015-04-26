@@ -809,7 +809,7 @@ hljs.initHighlightingOnLoad();
 <p>The <strong>lm</strong> function create linear regression model that can be used to predict new values, and contain information as the Residual Standard Error and the prediction equation.<br/>
 <small><font size="+2">RSE equation: \( S_{y}=\sqrt{\frac{\sum_{i=i}^{n} (y_{i}-\hat{y}_{i})^2}{(n-2)}}=5.91 \)<br/>
 prediction: \( \hat{y}=10.73\cdot x^* + 33.47 \)<br/>
-were <strong>\( y_{i} \)</strong> is each waiting value in faithful, <strong>\( \hat{y}_{i} \)</strong> is each equivalent predicted waiting time, <strong>(n-2)</strong> degree of freedom, <strong>\( x^* \)</strong> new eruption value to predict with.<br/>
+were <strong>y_i</strong> is each waiting value in faithful, <strong>y_hat_i</strong> is each equivalent predicted waiting time, <strong>(n-2)</strong> degree of freedom, x* new eruption value to predict with.<br/>
 See code below:  </p>
 
 <pre><code class="r">library(datasets) ; data(faithful)
