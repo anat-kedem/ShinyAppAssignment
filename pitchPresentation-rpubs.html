@@ -810,7 +810,7 @@ hljs.initHighlightingOnLoad();
 <small><font size="+2">RSE equation: \( S_{y}=\sqrt{\frac{\sum_{i=i}^{n} (y_{i}-\hat{y}_{i})^2}{(n-2)}}=5.91 \)<br/>
 prediction: \( \hat{y}=10.73\cdot x^* + 33.47 \)<br/>
 <br>
-were <strong>y_i</strong> is each waiting value in faithful, <strong>y_hat_i</strong> is each equivalent predicted waiting time, <strong>(n-2)</strong> degree of freedom, <strong>x_star</strong> new eruption value to predict with. See code below:  </p>
+were <strong>\( y_{i} \)</strong> is each waiting value in faithful, <strong>\( \hat{y}_{i} \)</strong> is each equivalent predicted waiting time, <strong>(n-2)</strong> degree of freedom, <strong>\( x^* \)</strong> new eruption value to predict with. See code below:  </p>
 
 <pre><code class="r">library(datasets) ; data(faithful)
 modFit &lt;- lm(waiting~eruptions, data=faithful)
@@ -841,7 +841,7 @@ summary(modFit)$coefficients[1:2]
 <small>The Shiny application show interactively <strong>one</strong> predicted value at a time and therefore the prediction interval (tolerance) is presented.<br/>
 <font size="+2">Tolerance equation:<br/>
 \[ \hat{y}\pm t_{n-2}^*\cdot S_{y}\cdot\sqrt{1+\frac{1}{n}+\frac{(x^*-\bar{x})^2}{(n-1)S_x^2}}=55.88 to 75.45 \]<br/>
-for <strong>x_star=3</strong> (new value) and <strong>0.9 tolerance</strong>, were <strong>t_n-2</strong> is t value for a given tolerance and degree of freedom (270), and <strong>x_bar</strong> is eruptions mean in faithful data. See code below:  </p>
+for <strong>\( x^*=3 \)</strong> (new value) and <strong>0.9 tolerance</strong>, were <strong>\( t_{n-2}^* \)</strong> is t value for a given tolerance and degree of freedom (270), and <strong>\( \bar{x} \)</strong> is eruptions mean in faithful data. See code below:  </p>
 
 <pre><code class="r">predict(modFit, data.frame(eruptions=3), interval=&quot;prediction&quot;, level=0.9)
 </code></pre>
